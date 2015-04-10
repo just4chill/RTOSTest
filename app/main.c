@@ -95,6 +95,9 @@ static void appBoot(void * pvParameters)
     NVIC_SetPriority(UART0_IRQn, ((0x01<<3)|0x01));
 	/* Enable Interrupt for UART0 channel */
     NVIC_EnableIRQ(UART0_IRQn);
+
+    UART_Send(LPC_UART0, "System started\r", 
+    	sizeof("System started\r"),BLOCKING);
 }
 
 void prvSetupHardware( void )
